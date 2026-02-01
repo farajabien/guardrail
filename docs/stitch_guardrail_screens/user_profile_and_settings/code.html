@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardrail Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        /* Custom toggle switch styling if needed beyond Tailwind */
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a1f2b", 
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#2a3140",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-transparent dark:border-border-dark/30">
+<div class="text-slate-900 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">Settings</h2>
+</div>
+<div class="flex-1 flex flex-col items-center w-full max-w-lg mx-auto pb-8">
+<!-- ProfileHeader -->
+<div class="flex p-6 w-full flex-col items-center justify-center gap-4">
+<div class="relative group cursor-pointer">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24 ring-4 ring-white dark:ring-[#2a3140] shadow-lg" data-alt="Profile picture of a confident founder in a minimal setting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALiVNMFfbJw1Ew30OrivcfMrE2_zWA1BF7JwnnbccfMckYyjfsIhXWsQyGMiv_AcTStG4K9hW5_ZubXRQn719NZzxq59_8K7ticE5hmEUtfOQmhN-CqOnTh55c3trO8ZLdEkdiI8nxiB-b-NeenZFit1YNuC-UqrgTsL8TgeDVdua7YNMmja4AX3x-H0BdA90sIxJsHc_v9OqNVUyj39lwWQZvcsUXg1xti3hjkVh1b6PgJahxloT2WYvpb_1SdDEFQBC2UAO1LD0");'>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-1.5 flex items-center justify-center shadow-sm border-2 border-background-light dark:border-background-dark">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-slate-900 dark:text-white text-2xl font-bold leading-tight tracking-tight text-center">Alex Founder</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal text-center mt-1">Member Since Nov 2023</p>
+</div>
+</div>
+<!-- Section: Account -->
+<div class="w-full px-4 mt-2">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold leading-tight tracking-widest px-4 pb-2 pt-4 uppercase">Account</h3>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-900/5 dark:ring-white/5">
+<!-- ListItem: Email -->
+<div class="flex items-center gap-4 px-4 min-h-[64px] justify-between cursor-pointer active:bg-slate-50 dark:active:bg-[#222836] transition-colors border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal truncate">Email</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs truncate">alex@guardrail.com</p>
+</div>
+</div>
+<div class="shrink-0 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- ListItem: Password -->
+<div class="flex items-center gap-4 px-4 min-h-[64px] justify-between cursor-pointer active:bg-slate-50 dark:active:bg-[#222836] transition-colors">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal flex-1 truncate">Change Password</p>
+</div>
+<div class="shrink-0 text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Preferences -->
+<div class="w-full px-4 mt-6">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold leading-tight tracking-widest px-4 pb-2 pt-4 uppercase">Preferences</h3>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-900/5 dark:ring-white/5">
+<!-- Toggle: Notifications -->
+<div class="flex items-center gap-4 px-4 min-h-[64px] justify-between border-b border-border-light dark:border-border-dark">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal flex-1 truncate">Weekly Lock Notifications</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Toggle: Dark Mode -->
+<div class="flex items-center gap-4 px-4 min-h-[64px] justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-10">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<p class="text-slate-900 dark:text-white text-sm font-semibold leading-normal flex-1 truncate">Dark Mode</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Subscription -->
+<div class="w-full px-4 mt-6">
+<h3 class="text-slate-500 dark:text-slate-400 text-xs font-bold leading-tight tracking-widest px-4 pb-2 pt-4 uppercase">Membership</h3>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-900/5 dark:ring-white/5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 gap-4">
+<div class="flex items-start gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 shrink-0 size-10 shadow-lg">
+<span class="material-symbols-outlined">stars</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Pro Member</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Next billing on Dec 01, 2023</p>
+</div>
+</div>
+<button class="text-primary text-sm font-semibold bg-primary/10 hover:bg-primary/20 transition-colors px-4 py-2 rounded-lg self-start sm:self-center">
+                        Manage Plan
+                    </button>
+</div>
+</div>
+</div>
+<!-- Section: Sign Out -->
+<div class="w-full px-4 mt-8 mb-4">
+<button class="w-full bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 text-red-500 dark:text-red-400 font-semibold py-4 rounded-xl shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 hover:bg-slate-50 dark:hover:bg-[#222836]">
+<span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </button>
+<p class="text-center text-slate-400 dark:text-slate-600 text-xs mt-6">
+                Guardrail v1.0.4 (Build 203)
+            </p>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardrail - Add Idea</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for cleanliness */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #3b4754;
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black flex justify-center items-center min-h-screen p-0 sm:p-4 font-display antialiased selection:bg-primary/30 selection:text-primary">
+<!-- Mobile Screen Container -->
+<div class="relative flex flex-col h-[100dvh] sm:h-[800px] w-full max-w-[400px] bg-background-light dark:bg-background-dark sm:rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+<!-- Header -->
+<div class="flex items-center justify-between px-4 py-4 bg-background-light dark:bg-background-dark z-10 shrink-0">
+<button class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-base font-medium transition-colors">
+                Cancel
+            </button>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">New Idea</h1>
+<!-- Invisible spacer to balance the flex layout so title remains centered -->
+<div class="w-[52px]"></div>
+</div>
+<!-- Scrollable Form Content -->
+<div class="flex-1 overflow-y-auto px-5 py-2">
+<!-- Title Field -->
+<div class="mb-6 group">
+<label class="block text-slate-700 dark:text-slate-200 text-sm font-bold mb-2" for="idea-title">
+                    Title
+                </label>
+<div class="relative">
+<input autofocus="" class="w-full bg-white dark:bg-[#1c242d] border border-slate-200 dark:border-slate-700 rounded-lg h-14 px-4 text-base text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" id="idea-title" placeholder="e.g., AI-Powered CRM for Dentists" type="text"/>
+</div>
+</div>
+<!-- Note Field -->
+<div class="mb-2">
+<label class="block text-slate-700 dark:text-slate-200 text-sm font-bold mb-2" for="idea-note">
+                    Note
+                </label>
+<div class="relative">
+<textarea class="w-full bg-white dark:bg-[#1c242d] border border-slate-200 dark:border-slate-700 rounded-lg min-h-[160px] p-4 text-base text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm resize-none leading-relaxed" id="idea-note" maxlength="140" placeholder="Briefly describe the problem and solution..."></textarea>
+<!-- Character Counter (Simulating the state as user types) -->
+<div class="flex justify-end mt-2">
+<span class="text-xs font-mono font-medium text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-[#252e38] px-2 py-1 rounded">
+                            0 / 140
+                        </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action Bar -->
+<!-- Using a subtle gradient overlay at the top of this bar to separate from content -->
+<div class="bg-background-light dark:bg-background-dark p-4 pb-6 sm:pb-4 border-t border-slate-200 dark:border-slate-800 shrink-0 z-20">
+<div class="flex gap-3">
+<!-- Secondary Button: Save -->
+<button class="flex-1 h-12 flex items-center justify-center rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-slate-100 dark:hover:bg-[#1c242d] text-slate-700 dark:text-slate-200 font-bold text-sm transition-colors active:scale-[0.98]">
+                    Save
+                </button>
+<!-- Primary Button: Save & Score -->
+<button class="flex-1 h-12 flex items-center justify-center rounded-lg bg-primary hover:bg-blue-600 text-white font-bold text-sm shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]">
+                    Save &amp; Score
+                </button>
+</div>
+</div>
+</div>
+</body></html>

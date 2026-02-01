@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Execution Health Tracker</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c242e",
+                        "border-dark": "#2a3441",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>/* Custom scrollbar for cleaner look */
+::-webkit-scrollbar {
+    width: 6px
+    }
+::-webkit-scrollbar-track {
+    background: transparent
+    }
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px
+    }
+/* Select arrow replacement */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDzHaUsVJWpP2I6zUcd58Nabm4f298MoLBOqDCKRpOew_CndCs2-oP-2a12NIsxLnkSOeQ5dkcs_mson54AVpbInPgrQ--WwIdUTWJ9_QNzd50wR6M44CgmkZRQlqiHn2k7MyjKX6YOyzdd7lMz9wNTtm49gdJoQkDS3duEX54dy2ps8yvVOkWc23DQ-WbR0H3xMOfoXK7f3BhHI76paEozjPFNceibL9W3vmko4QMHfQsdtR8q2zTEgC66SHh0--_bZkZVD6iiFig);
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto border-x border-border-dark/30 shadow-2xl">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex items-center justify-between px-4 py-3 bg-background-dark/95 backdrop-blur-sm border-b border-border-dark">
+<button class="flex items-center justify-center p-2 -ml-2 text-white hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-base font-semibold text-white tracking-tight">Execution Tracker</h1>
+<button class="flex items-center justify-center p-2 -mr-2 text-white hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 flex flex-col p-4 pb-24 space-y-6">
+<!-- Idea Header & Status -->
+<div class="space-y-4">
+<div class="space-y-1">
+<p class="text-xs font-medium text-primary uppercase tracking-wider">Active Idea</p>
+<h2 class="text-3xl font-bold text-white leading-tight">AI-Powered Meal Planner</h2>
+</div>
+<div class="relative">
+<label class="block text-sm font-medium text-gray-400 mb-1.5">Current Status</label>
+<div class="relative">
+<select class="w-full bg-surface-dark border border-border-dark text-white text-base rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
+<option selected="" value="in_progress">In Progress</option>
+<option value="launched">Launched</option>
+<option value="paused">Paused</option>
+<option value="validated">Validated</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Health Indicator Card -->
+<div class="rounded-xl bg-surface-dark border border-border-dark overflow-hidden p-4 flex items-center gap-4 shadow-lg relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-green-500"></div>
+<div class="relative flex items-center justify-center size-12 rounded-full bg-green-500/10 text-green-500 shrink-0">
+<span class="material-symbols-outlined" style="font-size: 28px; font-variation-settings: 'FILL' 1;">ecg_heart</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-0.5">
+<h3 class="text-base font-bold text-white">Execution Health: Healthy</h3>
+<span class="inline-flex items-center rounded-md bg-green-400/10 px-2 py-0.5 text-xs font-medium text-green-400 ring-1 ring-inset ring-green-400/20">92/100</span>
+</div>
+<p class="text-sm text-gray-400 line-clamp-1">Strong signal on 3/5 metrics</p>
+</div>
+</div>
+<!-- Rubric Assessment Section -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-white">Rubric Assessment</h3>
+<span class="text-xs font-medium text-gray-500 bg-surface-dark px-2 py-1 rounded border border-border-dark">Weekly Focus</span>
+</div>
+<div class="space-y-5">
+<!-- Metric 1: Build Progress -->
+<div>
+<label class="flex justify-between text-sm font-medium text-gray-300 mb-2">
+<span>Build Progress</span>
+<span class="text-primary text-xs">Score: 4/5</span>
+</label>
+<select class="w-full bg-surface-dark border border-border-dark text-white text-sm rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option value="1">1 - Concept Only</option>
+<option value="2">2 - Wireframes Done</option>
+<option value="3">3 - MVP in Development</option>
+<option selected="" value="4">4 - Prototype Complete</option>
+<option value="5">5 - Production Ready</option>
+</select>
+</div>
+<!-- Metric 2: Exposure -->
+<div>
+<label class="flex justify-between text-sm font-medium text-gray-300 mb-2">
+<span>Exposure</span>
+<span class="text-orange-400 text-xs">Score: 2/5</span>
+</label>
+<select class="w-full bg-surface-dark border border-border-dark text-white text-sm rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option value="1">1 - No Public Mention</option>
+<option selected="" value="2">2 - Posted on LinkedIn</option>
+<option value="3">3 - Active Blog/Socials</option>
+<option value="4">4 - Viral Post / Featured</option>
+<option value="5">5 - Consistent Traffic</option>
+</select>
+</div>
+<!-- Metric 3: Real Usage -->
+<div>
+<label class="flex justify-between text-sm font-medium text-gray-300 mb-2">
+<span>Real Usage</span>
+<span class="text-yellow-400 text-xs">Score: 3/5</span>
+</label>
+<select class="w-full bg-surface-dark border border-border-dark text-white text-sm rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option value="1">1 - Zero Users</option>
+<option value="2">2 - Friends &amp; Family</option>
+<option selected="" value="3">3 - 10 Daily Active Users</option>
+<option value="4">4 - 100+ Daily Active Users</option>
+<option value="5">5 - Retention &gt; 40%</option>
+</select>
+</div>
+<!-- Metric 4: Signal -->
+<div>
+<label class="flex justify-between text-sm font-medium text-gray-300 mb-2">
+<span>Signal</span>
+<span class="text-primary text-xs">Score: 4/5</span>
+</label>
+<select class="w-full bg-surface-dark border border-border-dark text-white text-sm rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option value="1">1 - Crickets</option>
+<option value="2">2 - Mild Interest</option>
+<option value="3">3 - Questions/DMs</option>
+<option selected="" value="4">4 - Positive Feedback Loop</option>
+<option value="5">5 - People Begging For It</option>
+</select>
+</div>
+<!-- Metric 5: Revenue Attempt -->
+<div>
+<label class="flex justify-between text-sm font-medium text-gray-300 mb-2">
+<span>Revenue Attempt</span>
+<span class="text-red-400 text-xs">Score: 1/5</span>
+</label>
+<select class="w-full bg-surface-dark border border-border-dark text-white text-sm rounded-lg py-3 px-4 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option selected="" value="1">1 - Waitlist Only</option>
+<option value="2">2 - Pre-sale Page Up</option>
+<option value="3">3 - First Paying Customer</option>
+<option value="4">4 - Consistent MRR</option>
+<option value="5">5 - Ramen Profitable</option>
+</select>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer Action -->
+<footer class="fixed bottom-0 w-full max-w-md bg-background-dark/95 backdrop-blur-xl border-t border-border-dark p-4 flex flex-col gap-3 z-20">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-semibold h-12 px-6 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                Update Snapshot
+            </button>
+<button class="w-full text-gray-500 hover:text-gray-300 text-sm font-medium h-8 rounded-lg flex items-center justify-center transition-colors">
+                Archive Idea
+            </button>
+</footer>
+</div>
+</body></html>

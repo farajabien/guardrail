@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Focus Commitment Lock</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#0b73da",
+                    "background-light": "#f5f7f8",
+                    "background-dark": "#101922",
+                    "surface-dark": "#1b2531",
+                    "accent-red": "#ef4444",
+                },
+                fontFamily: {
+                    "display": ["Space Grotesk", "sans-serif"],
+                    "body": ["Noto Sans", "sans-serif"],
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+        },
+    }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white h-screen flex flex-col overflow-hidden selection:bg-primary/30">
+<!-- Status Bar Area (Visual Only for Phone Feel) -->
+<div class="h-12 w-full shrink-0"></div>
+<!-- Main Content Container -->
+<main class="flex-1 flex flex-col px-6 relative z-10 overflow-y-auto pb-32">
+<!-- Hero Icon & Eyebrow -->
+<div class="flex flex-col items-center justify-center pt-8 pb-6 animate-pulse">
+<div class="w-20 h-20 rounded-full bg-surface-dark border border-slate-700 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(11,115,218,0.1)]">
+<span class="material-symbols-outlined text-[40px] text-primary">lock</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-bold tracking-[0.2em] uppercase text-center">Focus Lock Initiated</p>
+</div>
+<!-- Authoritative Headline -->
+<div class="flex flex-col items-center text-center space-y-2 mb-10">
+<h1 class="text-3xl font-bold leading-tight text-slate-900 dark:text-white">
+                You are committing to: <br/>
+<span class="text-primary text-4xl block mt-2">Project Alpha</span>
+</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm max-w-xs mx-auto pt-2">
+                This action cannot be undone. Guardrail will enforce focus mode immediately.
+            </p>
+</div>
+<!-- Locked Stats Module -->
+<div class="w-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl p-6 mb-8 shadow-sm">
+<div class="flex flex-col items-center gap-1">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wide">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+                    Locked until
+                </div>
+<p class="text-slate-900 dark:text-white tracking-tight text-3xl font-bold tabular-nums">Sunday, 11:59 PM</p>
+</div>
+<!-- Progress visual -->
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 mt-5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[5%] rounded-full"></div>
+</div>
+</div>
+<!-- Rules List -->
+<div class="flex flex-col gap-3">
+<p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider ml-1 mb-1">Enforcement Rules</p>
+<!-- List Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 rounded-lg p-4 shadow-sm">
+<div class="flex items-center justify-center rounded-lg bg-red-500/10 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined text-accent-red text-[24px]">block</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-tight">No new ACTIVE ideas</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Creation is disabled for the duration.</p>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700/50 rounded-lg p-4 shadow-sm">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 shrink-0 h-10 w-10">
+<span class="material-symbols-outlined text-primary text-[24px]">visibility</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white text-base font-medium leading-tight">Read-only mode</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Other projects are viewable but frozen.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Action -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-12 z-20">
+<button class="w-full bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all duration-200 text-white font-bold text-lg py-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(11,115,218,0.5)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">fingerprint</span>
+            I Understand &amp; Commit
+        </button>
+</div>
+<!-- Background texture/gradient overlay for atmosphere -->
+<div class="fixed inset-0 pointer-events-none opacity-30 dark:opacity-20 z-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+</body></html>

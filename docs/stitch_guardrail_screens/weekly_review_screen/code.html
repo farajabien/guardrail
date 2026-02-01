@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white overflow-x-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto">
+<!-- Header -->
+<div class="flex items-center p-4 pb-2 justify-between pt-8">
+<div class="w-12"></div> <!-- Spacer for centering -->
+<h2 class="text-[#111418] dark:text-white text-sm font-bold uppercase tracking-widest leading-tight flex-1 text-center opacity-70">Sunday Review</h2>
+<div class="w-12 flex justify-end">
+<span class="material-symbols-outlined text-[#111418] dark:text-white cursor-pointer">close</span>
+</div>
+</div>
+<!-- Headline -->
+<div class="px-4 pb-2 pt-2">
+<h1 class="text-[#111418] dark:text-white tracking-tight text-[32px] font-extrabold leading-tight text-left">Close the Loop</h1>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium mt-1">Decide the fate of your active focus.</p>
+</div>
+<!-- Active Idea Card -->
+<div class="p-4">
+<div class="relative w-full h-auto rounded-xl overflow-hidden shadow-lg bg-[#111418] group">
+<!-- Background Image with Gradient Overlay -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract dark geometric shapes representing focus and structure" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpqu7zByGM9s6B9aavLaumzxfV9M9GYc5JM75-IZ4F10PIjpSzNn1HANrbenvV-3A1ydGJjxGvreayeZreaEpIZ9VFPs9OXvdBowjlDycBh7Jcjn6eJSIgZPrF0cbbQGXwdq33yyFAKcNIBncDmWN1z1hrx15LxaLKUGGyHOtwS1fjpE_hB31Lyl2d3lo1p8LR0pEyaiFHleUwZwSc3-KkkksAEy7oz8XLWHqEMu5jZ1pj-ryZSesV0vWuekGalkmehVrJFoRwB1s");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90"></div>
+<div class="relative flex flex-col items-start justify-end pt-[140px] p-6 h-full z-10">
+<div class="flex flex-col gap-2 w-full">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-xs font-bold uppercase tracking-wide border border-primary/20">Active Focus</span>
+</div>
+<h3 class="text-white tracking-tight text-3xl font-bold leading-tight">Tailor Your CV</h3>
+<!-- Embedded Progress/Health -->
+<div class="mt-4 pt-4 border-t border-white/10 w-full">
+<div class="flex gap-6 justify-between items-end mb-2">
+<p class="text-white/80 text-sm font-medium leading-normal flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">monitoring</span>
+                                    Execution Health
+                                </p>
+<span class="text-white font-bold text-sm">Strong</span>
+</div>
+<div class="rounded-full bg-white/20 h-1.5 w-full overflow-hidden">
+<div class="h-full rounded-full bg-primary shadow-[0_0_10px_rgba(19,127,236,0.6)]" style="width: 80%;"></div>
+</div>
+<p class="text-white/60 text-xs font-normal leading-normal mt-2">4/5 daily goals hit this week</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decision Stack -->
+<div class="flex-1 flex flex-col justify-end px-4 pb-8 gap-3 mt-4">
+<!-- Primary Action -->
+<button class="flex w-full cursor-pointer items-center justify-between overflow-hidden rounded-xl h-14 px-5 bg-primary hover:bg-primary/90 transition-colors text-white shadow-lg shadow-primary/20 group">
+<span class="text-base font-bold leading-normal tracking-[0.015em]">Keep Active Next Week</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Secondary Actions Row -->
+<div class="grid grid-cols-2 gap-3">
+<button class="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-12 px-4 bg-[#e8eef3] dark:bg-[#232d38] text-[#111418] dark:text-white hover:bg-[#dbe4eb] dark:hover:bg-[#2d3a48] transition-colors">
+<span class="material-symbols-outlined text-[20px] opacity-70">pause_circle</span>
+<span class="text-sm font-semibold truncate">Park It</span>
+</button>
+<button class="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-12 px-4 bg-[#e8eef3] dark:bg-[#232d38] text-[#111418] dark:text-white hover:bg-[#dbe4eb] dark:hover:bg-[#2d3a48] transition-colors">
+<span class="material-symbols-outlined text-[20px] text-green-500">rocket_launch</span>
+<span class="text-sm font-semibold truncate">Launched</span>
+</button>
+</div>
+<!-- Destructive Action -->
+<button class="flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-12 px-5 bg-transparent border border-[#dbe4eb] dark:border-[#3b4754] text-[#637588] dark:text-[#9dabb9] hover:bg-[#f0f4f8] dark:hover:bg-[#1a232d] transition-colors mt-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+<span class="text-sm font-medium leading-normal">Abandon Intentionally</span>
+</button>
+</div>
+</div>
+</body></html>

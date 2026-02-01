@@ -1,0 +1,10 @@
+{
+  "id": "da185acd-5d79-49eb-9bb3-7d7ae995931e",
+  "name": "guardrail",
+  "description": "guardrail - AI-powered app",
+  "createdAt": "2026-02-01T09:11:47.748Z",
+  "updatedAt": "2026-02-01T09:11:47.748Z",
+  "contextPath": ".mycontext",
+  "version": "0.1.0",
+  "status": "initialized"
+}

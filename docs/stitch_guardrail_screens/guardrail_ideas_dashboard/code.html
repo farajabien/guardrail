@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardrail Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c242d",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #374151;
+            border-radius: 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display antialiased overflow-x-hidden transition-colors duration-200">
+<div class="relative flex min-h-screen flex-col w-full max-w-md mx-auto border-x border-gray-200 dark:border-gray-800 shadow-2xl">
+<!-- Header -->
+<header class="sticky top-0 z-20 flex items-center justify-between p-4 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-xl bg-primary text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-[24px]">security</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight">Guardrail</h1>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full text-gray-500 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col gap-6 p-4 pb-24">
+<!-- Focus Section -->
+<section>
+<div class="flex items-center justify-between mb-3 px-1">
+<h2 class="text-lg font-bold">This Week's Focus</h2>
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary uppercase tracking-wider">Active</span>
+</div>
+<div class="group relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-md border border-gray-100 dark:border-gray-800 transition-all hover:shadow-lg">
+<!-- Progress Bar / Visual Indicator Top -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700">
+<div class="h-full bg-primary w-[85%] rounded-r-full"></div>
+</div>
+<div class="p-5 pt-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-2xl font-bold leading-tight mb-1">Tailor Your CV App</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Validate market demand via landing page.</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="text-2xl font-bold text-primary">48<span class="text-sm text-gray-400 font-normal">/50</span></div>
+<span class="text-[10px] text-gray-400 uppercase tracking-wide font-medium">Score</span>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-3 mb-5">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-800">
+<div class="size-8 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Remaining</span>
+<span class="text-sm font-bold">6 Days</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-800">
+<div class="size-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Progress</span>
+<span class="text-sm font-bold">On Track</span>
+</div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 h-11 rounded-xl bg-primary hover:bg-primary/90 text-white font-medium transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+                            Log Progress
+                        </button>
+</div>
+</div>
+</section>
+<!-- All Ideas Section -->
+<section>
+<div class="flex items-center justify-between mb-4 px-1">
+<h2 class="text-lg font-bold">Backlog &amp; Ideas</h2>
+<button class="text-sm text-primary font-medium hover:text-primary/80">View Analysis</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Header Row for larger screens/clarity, though stylized as list items for mobile -->
+<div class="hidden sm:grid grid-cols-12 gap-4 px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+<div class="col-span-6">Idea Name</div>
+<div class="col-span-3 text-center">Score</div>
+<div class="col-span-3 text-right">Decision</div>
+</div>
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-4 flex-1 min-w-0">
+<div class="shrink-0 size-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-base font-semibold truncate text-[#111418] dark:text-white">AI Legal Drafter</span>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span>Active</span>
+<span class="size-1 rounded-full bg-gray-600"></span>
+<span>Score: 47/50</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 ml-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                                GO
+                            </span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-4 flex-1 min-w-0">
+<div class="shrink-0 size-10 rounded-full bg-slate-500/10 flex items-center justify-center text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">archive</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-base font-semibold truncate text-[#111418] dark:text-white">Plant Sitter App</span>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span>Archived</span>
+<span class="size-1 rounded-full bg-gray-600"></span>
+<span>Score: 22/50</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 ml-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-gray-500/10 text-gray-500 dark:text-gray-400 border border-gray-500/20">
+                                DROP
+                            </span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-4 flex-1 min-w-0">
+<div class="shrink-0 size-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined">edit</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-base font-semibold truncate text-[#111418] dark:text-white">Niche CRM for Plumbers</span>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span>Draft</span>
+<span class="size-1 rounded-full bg-gray-600"></span>
+<span>Score: 35/50</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 ml-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                                MODIFY
+                            </span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-100 dark:border-gray-800 active:scale-[0.99] transition-transform cursor-pointer opacity-75 hover:opacity-100">
+<div class="flex items-center gap-4 flex-1 min-w-0">
+<div class="shrink-0 size-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-base font-semibold truncate text-[#111418] dark:text-white">Podcast Clipper Tool</span>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span>Draft</span>
+<span class="size-1 rounded-full bg-gray-600"></span>
+<span>Score: --/50</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 ml-3">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                                NEW
+                            </span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-24 right-6 z-30">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-xl shadow-primary/40 hover:scale-110 hover:shadow-2xl transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full max-w-md bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-safe pt-2 px-6 z-20">
+<div class="flex items-center justify-between h-14">
+<a class="flex flex-col items-center gap-1 text-primary w-16" href="#">
+<span class="material-symbols-outlined filled">dashboard</span>
+<span class="text-[10px] font-medium">Ideas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 w-16 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-medium">Metrics</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 w-16 transition-colors" href="#">
+<div class="size-6 rounded-full overflow-hidden bg-gray-200" data-alt="User profile avatar placeholder">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_MFLed6aqcHmlekpDxMdrgys43TI8iJ5FzgkekJj95B2b7Zn3DUNh6YlW3abHg2cxrayadvn8SXGFSvbu_2xfBDol6a1KbAgPhK0QwYrVsC1vZSq31Xdd-FGMGDOgT4xuv6icGSvOsf00f6IVygJ6Y9fprXrzUo28swhBJ2REehzTIm2w2vifb2OU01eZfbjVf3tdiMWP9tdQbRu3frf_QyUyj1lMcQXTvHwuN_uuV4sXIUVyOuhT1c5I9-ZSyGFOFNSgZt0-us0"/>
+</div>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+<!-- Safe area spacing for iOS home indicator -->
+<div class="h-5 w-full"></div>
+</nav>
+</div>
+</body></html>
