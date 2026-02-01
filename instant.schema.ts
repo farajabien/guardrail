@@ -13,6 +13,42 @@ const _schema = i.schema({
       imageURL: i.string().optional(),
       type: i.string().optional(),
     }),
+    ideas: i.entity({
+      title: i.string(),
+      notes: i.string().optional(),
+      createdAt: i.number(),
+      lastScoredAt: i.number().optional(),
+      guardrailScore: i.number().optional(), // 0-50
+      decision: i.string().optional(), // GO, MODIFY, DROP
+      executionStatus: i.string().optional(), // Planned, In Progress, Launched, Validated, Parked, Abandoned
+      isActive: i.boolean(), // Weekly focus lock
+      activatedAt: i.number().optional(),
+      lockExpiresAt: i.number().optional(), // Sunday 11:59 PM
+    }),
+    scoringResponses: i.entity({
+      // Store individual criterion scores (1-5 each)
+      existingParticipants: i.number().optional(),
+      painIntensity: i.number().optional(),
+      monetizationGap: i.number().optional(),
+      manualPain: i.number().optional(),
+      automationPotential: i.number().optional(),
+      oneWayPayment: i.number().optional(),
+      incentiveAlignment: i.number().optional(),
+      operationalSimplicity: i.number().optional(),
+      smallTeamFit: i.number().optional(),
+      timeToValue: i.number().optional(),
+      scoredAt: i.number(),
+    }),
+    weeklyExecutions: i.entity({
+      weekStart: i.number(), // Timestamp for week start
+      buildProgress: i.string().optional(), // None, Partial, Complete
+      exposure: i.string().optional(), // None, Shared, Marketed
+      realUsage: i.string().optional(), // None, Self, External
+      signal: i.string().optional(), // None, Qualitative, Quantitative
+      revenueAttempt: i.string().optional(), // None, Tried, Achieved
+      executionHealth: i.string().optional(), // Healthy, Stalled, Avoidance
+      updatedAt: i.number(),
+    }),
   },
   links: {
     $usersLinkedPrimaryUser: {
@@ -26,6 +62,43 @@ const _schema = i.schema({
         on: "$users",
         has: "many",
         label: "linkedGuestUsers",
+      },
+    },
+    userIdeas: {
+      forward: {
+        on: "$users",
+        has: "many",
+        label: "ideas",
+      },
+      reverse: {
+        on: "ideas",
+        has: "one",
+        label: "user",
+      },
+    },
+    ideaScoringResponse: {
+      forward: {
+        on: "ideas",
+        has: "one",
+        label: "scoringResponse",
+        onDelete: "cascade",
+      },
+      reverse: {
+        on: "scoringResponses",
+        has: "one",
+        label: "idea",
+      },
+    },
+    ideaWeeklyExecutions: {
+      forward: {
+        on: "ideas",
+        has: "many",
+        label: "weeklyExecutions",
+      },
+      reverse: {
+        on: "weeklyExecutions",
+        has: "one",
+        label: "idea",
       },
     },
   },
