@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Guardrail 🛡️
 
-## Getting Started
+**Protect your execution. Stop the idea-hop.**
 
-First, run the development server:
+Guardrail is a minimalist validation and focus tool designed to help founders and builders stop jumping between projects. It enforces discipline by scoring ideas objectively and locking your focus for the week.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧘 What it is
+- **A filter for your brain**: A place to dump ideas and score them against a rigorous 10-point validation framework.
+- **A commitment device**: A weekly lock that prevents you from switching projects mid-week.
+- **A progress log**: A simple way to document daily wins and aggregate resources automatically.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚫 What it is NOT
+- **A project management tool**: No kanban boards, no complex task nesting, no "to-do" lists.
+- **A collaborator platform**: Built specifically for the solo builder or the individual lead.
+- **A general note-taker**: Notes are secondary to "Logs" and "Scores."
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗓️ Weekly Workflow
 
-To learn more about Next.js, take a look at the following resources:
+Guardrail is designed to be used in a specific, calm rhythm:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. The Monday Commitment
+Every Monday (or when you start your week), review your **Idea Backlog**.
+- Select one **Primary Focus**.
+- Select one **Secondary Focus**.
+- **The Lock**: Once you click "Set as Weekly Focus," these ideas are locked. You cannot remove them or swap them until Sunday at 11:59 PM.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Daily Execution
+Throughout the week, your only job is execution.
+- Open your active Focus card.
+- Use **"Log Progress"** to record what you did.
+- Add links, images, or documents. These are automatically extracted into your **Resources** tab.
 
-## Deploy on Vercel
+### 3. The Sunday Reset
+On Sunday night, the timer expires. 
+- Review your logs.
+- Decide if the idea is a **GO** (keep executing next week), **MODIFY** (pivoting), or **DROP** (validated as a 'no').
+- Clear your focus and prepare for the next Monday.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Stack
+- **Next.js** (App Router)
+- **InstantDB** (Real-time graph database)
+- **Tailwind CSS** (Clean, minimalist styling)
+- **shadcn/ui** (Accessible components)
+
+## 📄 License
+MIT. See [LICENSE](LICENSE) for details.
