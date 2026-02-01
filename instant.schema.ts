@@ -41,11 +41,11 @@ const _schema = i.schema({
     }),
     weeklyExecutions: i.entity({
       weekStart: i.number(), // Timestamp for week start
-      buildProgress: i.string().optional(), // None, Partial, Complete
-      exposure: i.string().optional(), // None, Shared, Marketed
-      realUsage: i.string().optional(), // None, Self, External
-      signal: i.string().optional(), // None, Qualitative, Quantitative
-      revenueAttempt: i.string().optional(), // None, Tried, Achieved
+      buildProgress: i.number().optional(), // 1-5
+      exposure: i.number().optional(), // 1-5
+      realUsage: i.number().optional(), // 1-5
+      signal: i.number().optional(), // 1-5
+      revenueAttempt: i.number().optional(), // 1-5
       executionHealth: i.string().optional(), // Healthy, Stalled, Avoidance
       updatedAt: i.number(),
     }),
