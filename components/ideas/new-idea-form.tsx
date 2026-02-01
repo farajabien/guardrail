@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { db, id } from "@/lib/instant-client";
-import { Loader2 } from "lucide-react";
+import { Loader2, Lightbulb } from "lucide-react";
 import Link from "next/link";
+import { BrainstormPromptDialog } from "./brainstorm-prompt-dialog";
 
 const MAX_NOTE_LENGTH = 140;
 
@@ -81,6 +82,30 @@ export function NewIdeaForm() {
               {error}
             </div>
           )}
+
+          {/* AI Brainstorm CTA */}
+          <div className="mb-6 rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950 dark:to-orange-950 border border-amber-200 dark:border-amber-800 p-4">
+            <div className="flex items-start gap-3">
+              <div className="rounded-full bg-amber-100 dark:bg-amber-900 p-2">
+                <Lightbulb className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-sm font-bold text-amber-900 dark:text-amber-100 mb-1">
+                  Not sure about your idea?
+                </h3>
+                <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
+                  Use our AI brainstorm template to validate your idea with Claude or ChatGPT first. It'll help you think through key questions and give you a clean summary to score.
+                </p>
+                <BrainstormPromptDialog
+                  trigger={
+                    <button className="text-xs font-bold text-amber-800 dark:text-amber-200 bg-white dark:bg-amber-900/50 px-3 py-1.5 rounded-md hover:bg-amber-50 dark:hover:bg-amber-900 transition-colors border border-amber-200 dark:border-amber-700">
+                      Start AI Brainstorm →
+                    </button>
+                  }
+                />
+              </div>
+            </div>
+          </div>
 
           {/* Title Field */}
           <div className="mb-6 group">

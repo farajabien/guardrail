@@ -232,6 +232,19 @@ export function ScoringWizard({ ideaId }: ScoringWizardProps) {
                 </label>
               ))}
             </div>
+
+            {/* Helper Text */}
+            <div className="h-12 flex items-start justify-center text-center">
+              {currentScore ? (
+                <p className="text-sm font-medium text-blue-600 dark:text-blue-400 animate-in fade-in slide-in-from-top-1 duration-200">
+                  {currentCriterion.helperText[currentScore]}
+                </p>
+              ) : (
+                <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                  Select a score to see details
+                </p>
+              )}
+            </div>
           </div>
         </main>
 

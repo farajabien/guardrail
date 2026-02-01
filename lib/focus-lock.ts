@@ -2,9 +2,9 @@
  * Focus Lock Utilities
  *
  * Enforces weekly focus commitment:
- * - Only one ACTIVE idea at a time
+ * - Up to TWO ACTIVE ideas at a time (primary + secondary)
  * - Lock expires Sunday at 11:59 PM
- * - Cannot activate new ideas during lock period
+ * - Cannot activate new ideas during lock period when at capacity
  */
 
 /**
@@ -102,12 +102,14 @@ export function formatCountdown(lockExpiresAt: number): string {
  */
 export interface FocusLockValidation {
   canActivate: boolean;
+  availablePriority?: number; // 1 = primary, 2 = secondary
   reason?: string;
-  currentActiveIdea?: {
+  activeIdeas?: Array<{
     id: string;
     title: string;
+    priority: number;
     lockExpiresAt: number;
-  };
+  }>;
 }
 
 export function validateCanActivate(
@@ -115,33 +117,50 @@ export function validateCanActivate(
     id: string;
     title: string;
     isActive: boolean;
+    priority?: number;
     lockExpiresAt?: number;
   }>
 ): FocusLockValidation {
-  // Find currently active idea
-  const activeIdea = allIdeas.find((idea) => idea.isActive);
+  // Find all currently active ideas with active locks
+  const activeIdeas = allIdeas.filter(
+    (idea) =>
+      idea.isActive &&
+      idea.lockExpiresAt &&
+      isLockActive(idea.lockExpiresAt)
+  );
 
-  if (!activeIdea) {
-    return { canActivate: true };
+  // No active ideas - can activate as primary
+  if (activeIdeas.length === 0) {
+    return { canActivate: true, availablePriority: 1 };
   }
 
-  // Check if lock is still active
-  if (activeIdea.lockExpiresAt && isLockActive(activeIdea.lockExpiresAt)) {
+  // 1 active idea - can activate as secondary
+  if (activeIdeas.length === 1) {
+    return { canActivate: true, availablePriority: 2 };
+  }
+
+  // 2 active ideas - at capacity
+  if (activeIdeas.length >= 2) {
+    const sortedIdeas = activeIdeas.sort((a, b) => (a.priority || 99) - (b.priority || 99));
+    const primaryIdea = sortedIdeas[0];
+    const secondaryIdea = sortedIdeas[1];
+
     return {
       canActivate: false,
-      reason: `You already have an active idea: "${activeIdea.title}". Wait until ${formatLockExpiry(
-        activeIdea.lockExpiresAt
+      reason: `You have 2 active ideas this week: "${primaryIdea.title}" (primary) and "${secondaryIdea.title}" (secondary). Wait until ${formatLockExpiry(
+        primaryIdea.lockExpiresAt!
       )} to activate a new one.`,
-      currentActiveIdea: {
-        id: activeIdea.id,
-        title: activeIdea.title,
-        lockExpiresAt: activeIdea.lockExpiresAt,
-      },
+      activeIdeas: sortedIdeas.map((idea) => ({
+        id: idea.id,
+        title: idea.title,
+        priority: idea.priority || 1,
+        lockExpiresAt: idea.lockExpiresAt!,
+      })),
     };
   }
 
-  // Lock expired, can activate
-  return { canActivate: true };
+  // Default fallback - can activate as primary
+  return { canActivate: true, availablePriority: 1 };
 }
 
 /**

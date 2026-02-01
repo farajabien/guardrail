@@ -20,6 +20,7 @@ export function ResultContent({ ideaId }: ResultContentProps) {
   const router = useRouter();
   const [showFocusModal, setShowFocusModal] = useState(false);
   const [isActivating, setIsActivating] = useState(false);
+  const [availablePriority, setAvailablePriority] = useState<number>(1);
 
   const { isLoading, error, data } = db.useQuery({
     ideas: {
@@ -41,7 +42,8 @@ export function ResultContent({ ideaId }: ResultContentProps) {
       return;
     }
 
-    // Show confirmation modal
+    // Store the available priority and show modal
+    setAvailablePriority(validation.availablePriority || 1);
     setShowFocusModal(true);
   };
 
@@ -57,6 +59,7 @@ export function ResultContent({ ideaId }: ResultContentProps) {
       await db.transact([
         db.tx.ideas[ideaId].update({
           isActive: true,
+          priority: availablePriority,
           activatedAt: now,
           lockExpiresAt,
           executionStatus: "In Progress",
@@ -315,6 +318,7 @@ export function ResultContent({ ideaId }: ResultContentProps) {
         onClose={() => setShowFocusModal(false)}
         onConfirm={handleConfirmActivate}
         ideaTitle={idea.title}
+        priority={availablePriority}
         isLoading={isActivating}
       />
     </div>

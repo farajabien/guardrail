@@ -22,8 +22,16 @@ const _schema = i.schema({
       decision: i.string().optional(), // GO, MODIFY, DROP
       executionStatus: i.string().optional(), // Planned, In Progress, Launched, Validated, Parked, Abandoned
       isActive: i.boolean(), // Weekly focus lock
+      priority: i.number().optional(), // 1 = primary, 2 = secondary
       activatedAt: i.number().optional(),
       lockExpiresAt: i.number().optional(), // Sunday 11:59 PM
+      expectedLinks: i.number().optional(), // Target for links expected (default 5)
+    }),
+    progressLogs: i.entity({
+      message: i.string(),
+      loggedAt: i.number(),
+      resources: i.json(), // Array of { type: 'link'|'image'|'doc', title: string, url: string }
+      linkCount: i.number().optional(),
     }),
     scoringResponses: i.entity({
       // Store individual criterion scores (1-5 each)
@@ -97,6 +105,18 @@ const _schema = i.schema({
       },
       reverse: {
         on: "weeklyExecutions",
+        has: "one",
+        label: "idea",
+      },
+    },
+    ideaProgressLogs: {
+      forward: {
+        on: "ideas",
+        has: "many",
+        label: "progressLogs",
+      },
+      reverse: {
+        on: "progressLogs",
         has: "one",
         label: "idea",
       },

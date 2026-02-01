@@ -17,6 +17,7 @@ interface FocusLockModalProps {
   onClose: () => void;
   onConfirm: () => void;
   ideaTitle: string;
+  priority: number; // 1 = primary, 2 = secondary
   isLoading?: boolean;
 }
 
@@ -25,9 +26,11 @@ export function FocusLockModal({
   onClose,
   onConfirm,
   ideaTitle,
+  priority,
   isLoading = false,
 }: FocusLockModalProps) {
   const lockExpiresAt = getNextSundayExpiry();
+  const priorityLabel = priority === 1 ? "Primary" : "Secondary";
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
@@ -38,9 +41,9 @@ export function FocusLockModal({
               <Lock className="h-5 w-5 text-green-700" />
             </div>
           </div>
-          <DialogTitle>Weekly Focus Commitment</DialogTitle>
+          <DialogTitle>{priorityLabel} Weekly Focus Commitment</DialogTitle>
           <DialogDescription>
-            You are about to commit to working on this idea for one week
+            You are about to commit to working on this idea as your {priorityLabel.toLowerCase()} focus for one week
           </DialogDescription>
         </DialogHeader>
 
@@ -69,13 +72,13 @@ export function FocusLockModal({
               <li className="flex items-start gap-2">
                 <span className="text-zinc-400">•</span>
                 <span>
-                  You cannot activate another idea until the lock expires
+                  You can have up to 2 active ideas per week (primary + secondary)
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-zinc-400">•</span>
                 <span>
-                  Other ideas become read-only during the lock period
+                  Cannot activate more ideas until the lock expires Sunday 11:59 PM
                 </span>
               </li>
               <li className="flex items-start gap-2">
